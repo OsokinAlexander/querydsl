@@ -1,0 +1,29 @@
+server:
+  port: ${SERVICE_PORT:8081}
+  servlet:
+    context-path: /${SERVICE_NAME:querydsl}
+
+security: 
+  enabled: ${SECURITY_ENABLED:false}
+        
+spring:
+  # Postgres
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/product
+    username: postgres
+    password: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    properties:
+#      hibernate:
+#        connection:
+#          characterEncoding: utf-8
+#          CharSet: utf-8
+#          useUnicode: true
